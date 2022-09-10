@@ -1,0 +1,11 @@
+.discovery__sub {
+    
+    @include flex (center , space-between);
+    flex-direction: column;
+    gap : 10px;
+
+
+    &__item {
+
+    }
+}

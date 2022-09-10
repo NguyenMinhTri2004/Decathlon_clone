@@ -1,0 +1,35 @@
+.contact {
+    @include flex (center , center);
+    flex-direction: column;
+    margin-top: 150px;
+
+    &__top {
+        @include flex (center , center);
+        height: 200px;
+        object-fit: contain;
+        overflow: hidden;
+        margin-bottom: 40px;
+        
+    }
+
+    &__bottom {
+        @include flex (flex-start, flex-start);
+        gap: 100px;
+
+        &__right {
+            flex-grow: 1;
+            @include flex(flex-start, flex-start);
+            flex-direction : column;
+            gap : 20px;
+        }
+    
+        &__left {
+            @include flex(flex-start, flex-start);
+            flex-direction : column;
+            gap: 20px;
+            width: 30%;
+            min-width: 50px;
+        } 
+    }
+
+}

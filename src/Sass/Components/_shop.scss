@@ -1,0 +1,100 @@
+.shop {
+    padding: 0 10%;
+    margin-top: 150px;
+    overflow: hidden;
+
+    &__top {
+        
+        display: flex;
+        gap: 30px;
+
+        &__item {
+
+            @include flex (center , center);
+            flex-direction: column;
+            border-radius: 5px;
+
+            &:first-of-type{
+                width: 15%;
+                background-color: rgb(244,244,244);
+                min-width: 130px;
+
+                & > h1 {
+                    font-size: 4rem;
+                }
+
+                & > p {
+                    font-size: 1.2rem;
+                    color: #0082c3;
+                    font-weight: bolder;
+                }
+            }
+
+            &:last-of-type {
+                flex-grow: 1;
+                padding : 20px;
+                background-color: rgb(244,244,244);
+                height: 100%;
+                padding: 55px;
+
+                & > h3 {
+                    font-size: 2rem;
+                    font-weight: bolder;
+                    letter-spacing: 2px;
+
+                    & > span {
+                        color: #0082c3;
+                    }
+                }
+
+                
+            }
+        }
+    }
+
+    &__bottom {
+
+        &__store {
+            @include flex (flex-start , flex-start);
+            gap: 20px;
+
+            &__wrapper {
+                min-width: 150px;
+                width: 15%;
+            }
+
+            &__item {
+                @include flex (center , center);
+                flex-direction: column;
+                box-shadow: $box-shadow;
+                gap: 40px;
+                border : 1px solid #f4f4f4;
+                padding: 10px;
+                cursor: pointer;
+
+            }
+        }
+
+        &__receive {
+
+            @include flex (center , flex-start);
+            gap: 30px;
+
+            &__item {
+                @include flex (center , center);
+                width: 15%;
+                background-color : #f4f4f4;
+                padding : 15px;
+                border-radius: 5px;
+                min-width: 150px;
+                cursor: pointer;
+
+                & > span {
+                    
+                  
+                   
+                }
+            }
+        }
+    }
+}

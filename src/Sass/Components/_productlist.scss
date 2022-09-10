@@ -1,0 +1,77 @@
+@import '../mixin';
+@import '../variable';
+@import '../base';
+
+
+.ProductList {
+
+
+    
+   
+    @include flex (center , left);
+    // display: grid;
+    // grid-template-columns: 200px 200px;
+    margin-bottom: 20px;
+    overflow: hidden;
+
+    @include tablet {
+        @include flex ( left , center);
+        flex-wrap: wrap;
+    }
+   
+
+    &__type {
+
+        position: relative;
+        flex : 25%;
+
+        
+        &__title > h1 {
+            color: $price-txt;
+            font-weight : bolder;
+        }
+
+        &__title > h2 {
+            color: $price-txt;
+            font-weight : bolder;
+        }
+
+        &__shadow {
+            text-orientation: mixed;
+            writing-mode: tb;
+            position: absolute;
+            right: -15px;
+            transform: rotate(-180deg);
+            top: 0;
+            padding-bottom: 100px;
+            z-index: -99;
+
+            & > h2 {
+                color : #f6f6f6;
+                text-transform: uppercase ;
+                font-size: 25px;
+                height : 100%;
+            }
+
+            & > h1 {
+                font-weight: 600;
+                color: #f6f6f6;
+                text-transform: uppercase;
+                // font-size: 2rem;
+                font-size: 60px;
+                height : fit-content;
+            }
+        }
+    }
+
+    
+}
+
+
+.swiper {
+    flex : 125%;
+}
+
+
+
+

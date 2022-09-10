@@ -1,0 +1,24 @@
+.follow {
+
+    background-color: #f4f4f4;
+    &__wrapper {
+        padding: 20px;
+    }
+
+    &__icon {
+
+        @include flex (center , space-around);
+
+        &__item {
+            background-color: $price-txt; 
+            padding:  10px 15px;
+            color: white;
+            border-radius: 5px;
+
+            & > img {
+                mix-blend-mode: unset;
+            }
+        } 
+
+    }
+}

@@ -1,0 +1,72 @@
+.coupon {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    z-index: 9999;
+
+
+    &__title {
+        @include flex (center , space-between);
+        padding : 20px 10px;
+        background-color: #0082c3;
+        text-orientation: mixed;
+        writing-mode: tb;
+        transform: rotate(-180deg);
+        color: white;
+        cursor: pointer;
+        z-index: 9999;
+        gap: 20px;
+
+        & > i {
+            font-size: 1.3rem;
+        }
+
+       &.active {
+          & > i {
+              transform: rotate(180deg);
+              transition: all 0.3s ease-in-out;
+          }
+       }
+  }
+    
+
+    &__content {
+        background-color: white;
+        position : absolute;
+        border-radius: 3px;
+        top: 0;
+        height : fit-content;
+        width: 300px;
+        height: 203px;
+        right: -300px;
+        transition: 0.4s ease;
+        z-index: -999;
+
+        &__wrapper {
+            @include flex (left , space-between);
+            flex-direction: column;
+            padding : 30px 30px;
+            gap: 10px;
+
+            & > span {
+                @include flex (center , center);
+                border-style: dotted;
+                border : 2px dashed #BDBFD4;
+                border-radius : 3px;
+                color : #383f47;
+            }
+
+            & > button {
+                color: #fff;
+            }
+            
+            & > p {
+                cursor: pointer;
+            }
+        }
+
+        &.active {
+            right: 35px;
+        }
+    }
+}

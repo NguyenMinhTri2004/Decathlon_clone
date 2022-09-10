@@ -1,0 +1,61 @@
+
+
+.hero-slide {
+    // padding-top: 55px ;
+    // min-height: 50vh;
+    margin-top: 137px;
+    margin-bottom: 50px;
+
+    @include tablet {
+        margin-top: 130px;
+    }
+}
+
+.carousel-control-next-icon {
+    background-color: transparent;
+    width:  100px;
+    height: 50px;
+}
+
+.carousel-inner {
+    height: 60vh;
+
+    @include tablet {
+        height: 55vh;
+    }
+
+    @include mobile {
+        height: 40vh;
+    }
+}
+
+.carousel-item {
+    height: 100%;
+
+    & > img {
+        width: 100%;
+        height: 100%;
+
+       
+    }
+}
+
+
+
+.carousel-control-prev-icon {
+    background-color: transparent;
+    width:  100px;
+    height: 50px;
+}
+
+// .carousel .item {
+//     height: 300px;
+//   }
+  
+//   .item img {
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       min-height: 100vh;
+//   }
+

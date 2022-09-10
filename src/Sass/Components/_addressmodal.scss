@@ -1,0 +1,67 @@
+.addressmodal {
+    background-color: white;
+    z-index: 1000000000;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 7px;
+    flex-direction: column;
+    box-shadow: $box-shadow;
+    display : none;
+    min-width: 425px;
+
+
+    &.active {
+        display : block;
+    }
+   
+
+    &__wrapper {
+        padding: 30px;
+    }
+
+    &__top {
+        @include flex (flex-start , space-between);
+        text-align: left;    
+        padding : 10px 0px;
+        border-bottom: 1px solid #d7d4d4;
+
+        & > span {
+            font-weight: 500;
+            font-size: 1.6rem;
+            cursor: pointer;
+        }
+    }
+
+    &__bottom {
+        width: 100%;
+        &__item {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 10px;
+
+            & > input {
+                padding: 15px;
+                background-color: #f9f7f7;
+                outline: none;
+                border : none;
+                border-radius: 10px;
+            }
+
+            & > label {
+                margin-bottom: 2px;
+            }
+
+            & > button {
+                @include flex (center,center);
+                color: #faeeee;
+                height: 50px;
+                
+            }
+        }
+    }
+
+}

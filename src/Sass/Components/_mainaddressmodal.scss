@@ -1,0 +1,162 @@
+.mainaddressmodal {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);;
+    z-index: 10000000;
+    top: 60%;
+    margin: 0 auto;
+    background-color : white;
+    width: 50%;
+    height: fit-content;
+    box-shadow: $box-shadow;
+    display: block;
+    min-width: 480px;
+
+    &.close {
+        display: none;
+    }
+
+    &__wrapper {
+        @include flex (flex-start , flex-start);
+        width: 100%;
+        padding: 20px;
+        gap: 15px;
+        position: relative;
+    }
+
+    &__close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+
+        & > span {
+            font-size: 1.5rem;
+        }
+    }
+    
+
+    &__left {
+        @include flex (flex-start , flex-start);
+        flex-direction: column;
+        gap: 10px;
+        width: 40%;
+        background-image: url(../../assets/Img/mainaddressbackground.png);
+        background-size: 100%;
+        background-repeat: repeat-y;
+        background-color: #f4f4f4;
+        min-height: 442px;
+        border-radius: 4px 0 0 4px;
+        padding: 10px;
+    }
+
+    &__right {
+        flex-grow: 1;
+        @include flex (center , center);
+        flex-direction: column;
+        gap: 20px;
+
+        &__item {
+
+            &:last-of-type {
+                background-color: #f4f4f4;
+            }
+
+            width: 100%;
+
+            & > strong {
+               
+                & > h6 {
+                    margin-bottom: 5px;
+                }
+            }
+
+            & > p {
+                text-align: center;
+            }
+
+          
+
+            &__content {
+
+                width: 100%;
+                background-color : #ece9e9;
+
+                &__wrapper {
+                    padding: 20px;
+                    @include flex (flex-start , space-between);
+                    flex-direction: column;
+                    gap: 10px;
+                }
+
+                &__top {
+                   @include flex (center , center);
+                   gap: 5px;
+                   width: 100%;
+                   min-height: 100px;
+                  
+
+                   & > span {
+
+                      background-color : #f5f5f5;
+                      padding: 20px;
+                      border-radius: 5px;
+
+                      @include tablet {
+                        font-size : 0.8rem;
+                      }
+
+                      &:first-of-type {
+                         width: 35%;
+                         min-width: 100px ;
+                    
+                      }
+
+                      &:last-of-type {
+                        flex-grow: 1;
+                      }
+                   }
+                  
+                }
+
+                &__bottom {
+
+                    cursor: pointer;
+                }
+
+                &__left {
+                    width: 100%;
+                    display : flex;
+                    align-items: center;
+                    gap: 160px;
+
+                    & > label {
+                        margin-bottom: 10px;
+                    }
+                }
+
+                &__right {
+                    width: 100%;
+                    @include flex(center , space-between);
+                    gap: 10px;
+
+                    & > select {
+                       width: 50%;
+                       padding: 10px 20px;
+                       border-radius: 5px;
+                       outline : none;
+                    }
+                }
+
+                &__button {
+                    width: 100%;
+
+                    & > button {
+                        width: 100%;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}

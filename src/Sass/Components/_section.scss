@@ -1,0 +1,24 @@
+.section {
+    margin-bottom: 50px;
+
+    & > * ~ * {
+        margin-top: 15px;
+    }
+
+    &__title {
+        @include flex(center , flex-start);
+        font-size: 1.5rem;
+        text-transform: capitalize;
+        text-align: center;
+        color : $txt-main-color;
+        font-weight: bolder;
+        
+    }
+
+    &__body {
+         
+        & > img {
+            min-height: 30vh;
+        }
+    }
+}

@@ -1,0 +1,258 @@
+.header {
+    position: fixed;
+     gap: 5px;
+     width: 100%;
+     overflow: hidden;
+     background-color: white;
+     top: 0;
+     z-index: 999999999;
+    //  display: none;
+
+    @include tablet {
+        font-size: 10px;
+    }
+
+    &__left {
+        @include flex (center , center);
+        gap: 10px;
+    }
+    
+
+    &__wrapper {
+        @include flex (center , space-between);
+        height: 100%;
+        gap: 30px;
+        padding: 20px;
+
+        & > p:first-of-type {
+            @include tablet {
+                display: none;
+            }
+        }
+    }
+
+    &__mobile {
+        position: relative;
+        background-color: transparent;
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+
+        @include tablet {
+            width: 28px;
+        }
+
+
+        &__item {
+            position: absolute;
+            height: 2px;
+            transition: 0.5s ease;
+
+
+
+            &:first-of-type {
+                background-color : black;
+                top: 8px ;
+                width: 70%;
+            }
+
+            &:nth-child(2) {
+                 background-color: #0082c3;
+                 top: 16px;
+                 width: 85%;
+                 height : 2.4px;
+            }
+
+            &:last-of-type {
+               background-color : black;
+               bottom: 8px;
+               width: 100%;
+               height : 2.4px;
+            }
+        }
+
+        &.active {
+        
+
+        & > .header__mobile__item {
+          
+
+            &:first-of-type {
+                background-color : transparent;
+            }
+    
+            &:nth-child(2) {
+                transform: rotate(43deg);
+                width: 100%;
+
+            }
+    
+            &:last-of-type {
+                transform: translateY(-8px) rotate(-43deg);    
+            }
+        }
+          
+      }
+
+        
+    }
+
+    &__logo {
+       cursor: pointer;
+       height: 37.9px;
+       @include flex (center , center);
+       width: 150px;
+
+       @include tablet {
+            & > a {
+
+                & > img {
+                    width: 80px;
+                }
+            }
+       }
+
+       & > p {
+         @include tablet {
+            display: none;
+         }
+       }
+    }
+     
+    &__center {
+        @include flex (center ,center);
+        flex-direction : column;
+        flex: 45%;
+        cursor: pointer;
+
+        
+       
+
+        &__top {
+            @include flex (center , center);
+            gap: 20px;
+            width: 100%;
+
+            & > select {
+                @include tablet {
+                    display: none;
+                }
+            }
+
+            select {
+                background-color: $product-type-bg;
+                padding: 13px;
+                outline: none;
+                border: none;
+                border-radius: 5px;
+            }
+
+            input {
+                width: 100%;
+               
+            }
+
+          
+
+            &__search {
+                    position: relative;
+                    width: 100%;
+                    min-width: 150px;
+                    
+
+                    & > input {
+                        background-color: $product-type-bg;
+                        padding: 13px 50px;
+                        outline: none;
+                        border: none;
+                        border-radius: 5px;
+                        border-right: 4px solid #0078bd;
+
+                        &::placeholder {
+                            font-size: 1.15rem;
+                         
+                        }
+                       
+                    }
+
+                &__icon {
+                    position: absolute;
+                    top: 20%;
+                    left: 10px;
+                    font-size: 2rem;
+                   
+                }
+            }
+
+            
+        }
+
+        &__bottom {
+            @include flex (center , center);
+            margin-top: -15px;
+           
+           @include tablet {
+               display: none;
+           }
+            
+            &__item {
+                margin-right: 20px;
+            }
+        }
+    }
+    
+    &__link {
+        @include flex (center , space-between);
+        cursor: pointer;
+
+        &__item {
+
+         
+        }
+
+        &__item a  {
+            @include flex (center , center);
+            margin : 0 15px;
+            display : flex;
+            flex-direction: column;
+            font-size: 1.1rem;
+
+            @include tablet {
+                margin : 0 8px;
+            }
+
+            & > p:last-child {
+                @include tablet {
+                    display : none;
+                }
+            }
+
+            & > i {
+                margin-bottom: 5px;
+                font-size: 1.5rem;
+            }
+        }
+
+      
+    }
+
+    &__delivery {
+       
+        @include flex (center , center);
+        position: relative;
+        margin-top: 5px;
+        color: white;
+        background-color: $main-color;
+        height : $header-mobile-height;
+        // margin-bottom: 20px;
+
+        & span {
+            border : 1px solid white;
+            padding : 5px 10px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        
+    }
+}
+

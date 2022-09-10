@@ -1,0 +1,347 @@
+.checkout {
+  
+    margin-top: 150px;
+    padding : 0px 3%;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+
+    &__wrapper {
+        @include flex (flex-start , flex-start);
+        gap: 20px;
+        padding: 20px;
+
+        @include tablet {
+            @include flex (center , center);
+            flex-direction: column;
+        }
+    }
+
+    &__left {
+        @include flex (flex-start , flex-start);
+        flex-direction: column;
+        gap: 10px;
+        flex-grow: 1;
+        background-color: white;
+        padding: 15px;
+        border-radius: 5px;
+        display: none;
+        min-width: 500px;
+
+        @include tablet {
+            width: 100%;
+        }
+
+        &.active {
+            display: flex;
+        }
+        
+
+        &__address {
+            @include flex (flex-start, flex-start);
+            flex-direction : column;
+            gap: 10px;
+            background-color: #e7f3f9;
+            padding :10px;
+            border-radius: 5px;
+
+            &__item {
+               display: flex;
+               align-items: center;
+               gap: 40px;
+               width: 100%;
+
+               & > span {
+                    padding: 10px;
+                    border: 1px solid #fff;
+                    background: #fff;
+                    color: #373d40;
+                    outline: none !important;
+                    box-shadow: none !important;
+                    transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+                    border-radius: 8px 8px 8px 0;
+                    display: block;
+                    font-size: 1rem;
+               }
+            }
+
+           &__add {
+               @include flex (center, center);
+               border : 1px dotted black;
+               border-radius: 5px;
+
+               & > span {
+                    border: 1px solid #f1f3f3;
+                    background: #f1f3f3;
+                    color: #373d40;
+                    outline: none !important;
+                    box-shadow: none !important;
+                    transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+                    border-radius: 8px 8px 8px 0;
+                    display: block;
+                    cursor: pointer;
+                    padding : 15px 80px;
+
+                    &:hover {
+                        background: #dde6e6;
+                    }
+               }
+           }
+        }
+
+        &__checkbox {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        &__button {
+            @include flex (center , center);
+            border: none;
+            background: linear-gradient(107deg, #ffea28 0%, #fdd935 100%);
+            color: #373d40;
+            outline: none !important;
+            transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+            border-radius: 8px 8px 8px 0;
+            box-shadow: 0 3px 3px rgb(55 61 64 / 20%);
+            padding : 20px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: linear-gradient(107deg, #f9e21a 0%, #fdd110 100%);
+            }
+        }
+        
+      
+
+        &:nth-child(2){
+            background-color: #f4f4f4;
+            
+        }
+
+        &:last-of-type {
+
+        }
+
+        &__top {
+            @include flex (center , space-between);
+            width: 100%;
+            margin-bottom: 10px;
+            background-color: white;
+            padding : 10px 15px;
+            border-radius: 5px;
+            box-shadow: $box-shadow;
+
+            &__item {
+
+                & > span {
+                    border: 1px solid #f1f3f3;
+                    background: #f1f3f3;
+                    color: #373d40;
+                    outline: none !important;
+                    box-shadow: none !important;
+                    transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+                    border-radius: 8px 8px 8px 0;
+                    display: block;
+                    padding : 8px 15px;
+                    cursor: pointer;
+                }
+
+              
+            }
+
+        }
+
+        &__bottom {
+            @include flex (flex-start ,space-between);
+            flex-direction: column;
+            gap: 15px;
+            background-color: white;
+            width: 100%;
+            padding : 10px 15px;
+            border-radius: 5px;
+          
+
+
+
+            &__item {
+                    
+                &__wrapper {
+                    padding : 20px;
+                    width: 100%;
+
+                    &__checkbox {
+                        width: 100%;
+                        @include flex (flex-start , space-between);
+                        flex-direction: column;
+                        gap: 30px;
+                        padding : 20px;
+
+                      
+                    }
+                }
+
+
+                &__checkbox {
+                            
+                    display: flex;
+                    align-items: center;
+                    gap: 3px;
+
+                    & > label {
+
+                        & > span {
+                            background-color: white;
+                        }
+                    }
+                }
+
+                &__button {
+
+                    width: 100%;
+
+                    & > span {
+                        border: none;
+                        background: linear-gradient(107deg, #ffea28 0%, #fdd935 100%);
+                        color: #373d40;
+                        outline: none !important;
+                        transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+                        border-radius: 8px 8px 8px 0;
+                        display: block;
+                        box-shadow: 0 3px 3px rgb(55 61 64 / 20%);
+                        margin-left: auto;
+                        max-width: 50%;
+                        padding : 20px;
+                        cursor: pointer;
+                        text-align: center;
+                    }
+                }
+               
+
+                &__top {
+
+                    @include flex (center , space-between);
+                    width: 100%;
+                  
+                    padding: 20px 0px;
+                    border-radius: 5px;
+
+                    & > strong {
+                        display: flex;
+                        gap: 3px;
+    
+                        & > label {
+    
+                            & > span {
+                                background-color: white;
+                            }
+                        }
+                    }
+
+                    & > span {
+                    
+                        &:first-of-type {
+                            background-color : white;
+                            padding : 10px 150px 10px 15px;
+                            border-radius : 5px;
+                        }
+                        
+                        &:last-of-type {
+                            background: #beefe2;
+                            padding: 8px 15px;
+                            border-radius: 8px;
+                            min-width: 60px;
+                            text-align: center;
+                            text-transform: uppercase;
+                           
+                        }
+                    }
+                }
+
+                &__bottom {
+                    @include flex (center , space-between);
+                    width: 100%;
+                    padding: 20px;
+                    background-color: white;
+                    border-radius: 8px;
+                    gap : 20px;
+                    display: none;
+
+                    &.active {
+                        display: flex;
+                    }                  
+
+                    &__item {
+
+                        &:first-of-type {
+                          flex-grow: 1;
+                          background-color: #e7f3f9;
+                          padding: 20px;
+                          border-radius: 8px;
+                        }
+
+                        &:last-of-type {
+                            width: 40%;
+                        }
+
+                        & > span {
+                            border: none;
+                            background: linear-gradient(107deg, #ffea28 0%, #fdd935 100%);
+                            color: #373d40;
+                            outline: none !important;
+                            transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+                            border-radius: 8px 8px 8px 0;
+                            display: block;
+                            box-shadow: 0 3px 3px rgb(55 61 64 / 20%);
+                            padding : 20px;
+                            text-align: center;
+                            cursor: pointer;
+                        }
+
+                       
+
+                    }
+                }
+            
+                &:nth-child(3) {
+
+                    @include flex (flex-start , space-between);
+                    flex-direction: column;
+                    width: 100%;
+                    background-color: #f4f4f4;
+
+                }
+
+                &:last-child {
+                    display: flex;
+                    align-items:center;
+                    gap: 3px;
+
+                    & > p {
+
+                        & > span {
+                            color: rgb(19, 19, 255);
+                        }
+                       
+                    }
+                }
+
+               
+            }
+
+        }
+
+    }
+
+    &__right {
+       @include flex (flex-start , flex-start);
+       flex-direction: column;
+       gap: 20px;
+       width: 30%;
+       min-width: 300px;
+
+       @include tablet {
+        width: 100%;
+     }
+    }
+}
+

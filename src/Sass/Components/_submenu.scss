@@ -1,0 +1,131 @@
+.submenu {
+    display: flex;
+    height: fit-content;
+    width: 100%;
+    background-color: #f4f4f4;
+    z-index: 1000000 ;
+    transform: translateY(200px);
+    transition: all 0.4s ease;
+    opacity: 0;
+    position: fixed;
+    top: 50px;
+    z-index: -9999999 ;
+   
+
+    &.active {
+      display: flex ;
+      transform: translateY(0);
+      opacity: 1;
+      top: 140px;
+      z-index: 99999999999;
+    }
+
+    &__left {
+        flex: 80%;
+
+        &__wrapper {
+           
+        }
+
+        &__title {
+            
+            display: flex;
+            gap: 50px;
+            padding : 10px 0px;
+            border-bottom:  1px solid #a8a8a8;
+            // color: $price-name ;
+            text-transform: capitalize;
+            font-size: 1.2rem;
+            cursor: pointer;
+
+            &__item{
+            //    color: red;
+            }
+
+            &__wrapper {
+                padding: 0 28px;
+            }
+        }
+
+        &__content {
+            text-transform: capitalize;
+            margin-top: 20px;
+            height : 100vh;
+            overflow-y: scroll;
+
+           &__item {
+              
+
+               &__list {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+
+                & > h4 {
+                    font-weight: bolder;
+                    font-weight: 600;
+                    font-size: 1.3rem;
+                }
+
+                & > a {
+                    font-weight: 400;
+                    font-size: 1rem;
+
+                }
+               }
+            }
+
+        }
+
+    }
+
+    &__right {
+        flex: 20%;
+      
+        &__content {
+            @include flex(flex-start , center);
+            flex-direction: column;
+            height: 100%;
+            
+            &__img {
+
+            }
+
+            &__text {
+               background-color:#0082c3;
+               width: 100%;
+
+               &__wrapper {
+                   padding: 15px;
+                   color : white;
+               }
+            }
+
+
+            &__list {
+
+                @include flex(flex-start , flex-start);
+                flex-direction: column;
+                width: 100% ;
+                background-color: white;
+                height: 100%;
+                padding: 15px;
+
+                &__item {
+
+                   
+                    background-color : red;
+
+                    & > a {
+                    color: red;
+                    }
+
+                    & > i {
+
+                    }
+                }
+
+            }
+        }
+    }
+}
