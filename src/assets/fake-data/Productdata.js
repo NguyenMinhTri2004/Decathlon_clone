@@ -9,7 +9,7 @@ const ProductArray = [
         rate : "2.6",
         slug : 'kinh-boi-500-spirit-co-l-den-xanh-duong',
         image : [
-            require('../Img/kinhboi01.webp')
+            '/Img/kinhboi01.webp'
         ],
         subimage : [
         //    require('../Img/kinhboi1.webp'),
