@@ -41,7 +41,7 @@ const ProductCart = props => {
                    </div>
 
                    {
-                              props.img.length > 1 && (
+                              props?.img?.length > 1 && (
                                 <div className="product__cart__top__sub">
                                 {
                                                 <Swiper

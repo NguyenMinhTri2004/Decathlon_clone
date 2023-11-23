@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect , useState } from 'react'
 import Helmet from '../Components/Helmet'
 import Services from '../Components/Services'
 import HeroSlides from '../Components/HeroSlides'
@@ -10,12 +10,40 @@ import ProductList from '../Components/ProductList'
 import { ProductData } from '../assets/fake-data/Productdata'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { getProductByType } from '../utils/handlegetData'
+import { getProducts} from "../api/product"
+import { getCategories } from '../api/category'
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 const Home = () => {
+
+
+  const [categories, setCategories] = useState([])
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    getProducts()
+    .then((res) => {
+       console.log(res)
+       setProducts(res?.data)
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+    getCategories()
+    .then((res) => {
+      console.log(res)
+      setCategories(res?.data)
+   })
+    .catch((err) => {
+      console.log(err);
+    });
+  }, [])
+
   return (
       <Helmet title = "Trang chủ" >
            <HeroSlides/>
@@ -173,20 +201,25 @@ const Home = () => {
    {/* Section hot trend end */}
 
    {/* Section kinh boi start */}
-           <ProductList
-              item = {ProductData.getProductByType("Kinh boi")}
-              title = {"SWIMMING"}
-              subtitle = {"KÍNH BƠI"}
-           />
+
+   {
+      categories.map((item , index) => (
+        <ProductList
+           item = {getProductByType(item?.name , products)}
+           title = {item?.title}
+           subtitle = {item?.subTitle}
+        />
+      ))
+   }
    {/* Section kinh boi end */}
 
    {/* Section GYM start */}
 
-            <ProductList
+            {/* <ProductList
               item = {ProductData.getProductByType("Gym")}
               title = {"PHÒNG GYM"}
               subtitle = {"TẠI NHÀ"}
-           />
+           /> */}
 
    {/* Section GYM end */}
 
@@ -234,20 +267,20 @@ const Home = () => {
    {/* Section type end */}
 
    {/* Section Giay chay bo start */}
-           <ProductList
+           {/* <ProductList
                item = {ProductData.getProductByType("Giay")}
                title = {"GIÀY"}
               subtitle = {"CHẠY BỘ"}
-           />
+           /> */}
    {/* Section Giay chay bo end */}
 
    {/* Section Fitness start */}
 
-          <ProductList
+          {/* <ProductList
                item = {ProductData.getProductByType("Fitness")}
                title = {"TẬP"}
                subtitle = {"FITNESS"}
-           />
+           /> */}
 
    {/* Section Fitness end */}
 

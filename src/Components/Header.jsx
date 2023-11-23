@@ -11,6 +11,9 @@ import { auth } from '../Firebase/Firebase'
 import { onAuthStateChanged } from 'firebase/auth';
 import {useDispatch } from "react-redux"
 import {useHistory} from 'react-router-dom'
+import Cookies from "js-cookie";
+
+
 const Header = () => {
 
    const HeaderProduct = [
@@ -40,7 +43,7 @@ const Header = () => {
    ]
 
     const dispatch = useDispatch()
-    const currentUser = useSelector(state => state.auth.currentUser)
+    const currentUser = Cookies.get("accessToken")
 
     useEffect(() => {
        

@@ -67,15 +67,15 @@ const ProductList = props => {
            >
        
                   {
-                      props.item.map((item , index) => (
+                      props?.item?.map((item , index) => (
                         <SwiperSlide key={index}>
                           <Link to = {`/catalog/${item.slug}`} >
                             <ProductCart
-                              img = {item.image}
-                              price = {item.price}
-                              name = {item.name}
-                              rate = {item.rate}
-                              discount = {item.discount}
+                              img = {item?.img}
+                              price = {item?.money}
+                              name = {item?.name}
+                              rate = {item?.rate}
+                              discount = {item?.discount}
                             />
                           </Link>
                       </SwiperSlide>

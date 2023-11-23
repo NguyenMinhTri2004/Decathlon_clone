@@ -10,8 +10,10 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
 import {Link} from "react-router-dom"
 import ProductCart from '../Components/ProductCart'
+import { getProducts} from "../api/product"
 import { useState } from 'react'
 import Services from '../Components/Services'
+import { getProductBySlug , getProductsHandle} from '../utils/handlegetData'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -22,16 +24,35 @@ const Products = (props) => {
  
   let link = useParams()
 
-  const product = ProductData.getProductBySlug(link.slug)
-  const productrandom =  ProductData.getProducts(10)
+  const [products, setProducts] = useState([])
+  const [product , setProduct] = useState(null)
+
+  useEffect(() => {
+    getProducts()
+    .then((res) => {
+       console.log(res)
+       setProducts(res?.data)
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }, [])
+
+  useEffect(() => {
+     let tmp = getProductBySlug(link.slug , products)
+     setProduct(tmp)
+   }, [products])
+
+  const productrandom =  getProductsHandle(10 , products)
 
   const [tabactive , Settabactive] = useState(1)
-  
+
+
   useEffect(() => {
     window.scrollTo(0,0)
   }, [product])
   
-  const images = product?.subimage?.map(image => {
+  const images = product?.img?.map(image => {
      return (
           {
                   
@@ -42,7 +63,7 @@ const Products = (props) => {
      )
  })
 
-   const mainImage = product.image.map(image => {
+   const mainImage = product?.img.map(image => {
        return (
            {
                original:  image,
@@ -63,7 +84,7 @@ const Products = (props) => {
        {/* Section product main end */}
 
         {/* Section product relate start */}
-
+       
        <Section>
             <SectionTitle>
                GỢI Ý
@@ -106,13 +127,13 @@ const Products = (props) => {
              {
                productrandom.map((item , index) => (
                     <SwiperSlide key={index}>
-                       <Link to = {`/catalog/${item.slug}`} >
+                       <Link to = {`/catalog/${item?.slug}`} >
                            <ProductCart
-                              img = {item.image}
-                              price = {item.price}
-                              name = {item.name}
-                              rate = {item.rate}
-                              discount = {item.discount}
+                              img = {item?.img}
+                              price = {item?.money}
+                              name = {item?.name}
+                              rate = {item?.rate}
+                              discount = {item?.discount}
                            />
                        </Link>
                     </SwiperSlide>

@@ -12,6 +12,9 @@ import { onAuthStateChanged , sendEmailVerification, signOut } from 'firebase/au
 import { useEffect } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { login } from '../api/auth'
+import Cookies from "js-cookie";
+import { getProfile } from "../api/auth";
 
 const Login = props => {
 
@@ -32,24 +35,45 @@ const Login = props => {
   const Login = async () => {
     
     const user = {email , password , remember }
-    await dispatch(authLogin(user))
+    // await dispatch(authLogin(user))
 
-    
-    if(currentUser.currentUser === undefined){
-      toast.error("Sai thông tin đăng nhập !", {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
+    login({
+       username : email,
+       password : password
     })
+    .then((res) => {
+      console.log(res)
+      Cookies.set("accessToken", res.accessToken)
 
-    }else {
+      getProfile()
+      .then((res) => {
+        console.log("role" , res.role);
+        Cookies.set("role", res.role)
+        history.push("/")
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+   })
+    .catch((err) => {
+      console.log(err);
+    });
+    
+    // if(currentUser.currentUser === undefined){
+    //   toast.error("Sai thông tin đăng nhập !", {
+    //     position: "bottom-right",
+    //     autoClose: 5000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    // })
+
+    // }else {
 
       history.push("/")
-    }
+    
    
     }
   
@@ -124,8 +148,8 @@ const Login = props => {
            <p>
              Một tài khoản kết nối tất cả ứng dụng trực tuyến của Decathlon và người chơi thể thao!
           </p> 
-           <label>Nhập địa chỉ email</label>
-           <input type="text" placeholder="Email" className="" value= {email} require
+           <label>Nhập username</label>
+           <input type="text" placeholder="username" className="" value= {email} require
               onChange={(e) => setEmail(e.target.value)}
            />
            <label>Nhập mật khẩu</label>

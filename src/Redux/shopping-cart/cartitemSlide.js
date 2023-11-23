@@ -4,7 +4,7 @@ import { db } from "../../Firebase/Firebase"
 import { getCartList } from "./cartitemaction"
 
 const initialState = {
-    value : [],
+    value : "",
    
 }
 
@@ -85,9 +85,9 @@ export const cartitemSlice = createSlice({
         deleteItem : (state , action) => {
                const deleteItem = action.payload
 
-               state.value = delItem(state.value , deleteItem) 
+               state.value = deleteItem
 
-               deleteDoc(doc(db, "cart" , deleteItem.userId+" "+deleteItem.name))
+            //    deleteDoc(doc(db, "cart" , deleteItem.userId+" "+deleteItem.name))
         }
 
         
